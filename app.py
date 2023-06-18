@@ -1,19 +1,17 @@
-import click
+import typer
+import csv
 
-@click.group()
-def note():
+app = typer.Typer()
+
+@app.command()
+def add_note(Text: str='null', Class: int=0):
+    # fill here with using open() and csv module make datas.csv add a new column with note-id, Text, Class
+
+    with open('a', 'datas.csv') as file:
+        pass
     pass
 
-@click.option('--name', default='taha', help='give your name')
-@click.command()
-def test():
-    click.echo('did a test :)')
+print(something)
 
-@note.command()
-def foo():
-    click.echo('did second test')
-
-if __name__ == '__main__':
-    note()
-    test()
-    # foo()
+if __name__ == "__main__":
+    app()
