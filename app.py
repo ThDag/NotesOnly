@@ -3,8 +3,9 @@ import csv
 
 app = typer.Typer()
 
+# add note
 @app.command()
-def add_note(note: str, classid: int=2):
+def addn(note: str, classid: int=2):
 
     # check if Class got any invalid values
     if 4 <= classid or classid <= 0:
@@ -27,6 +28,48 @@ def add_note(note: str, classid: int=2):
     with open('datas.csv', 'a') as file:
         data = csv.writer(file)
         data.writerow(note_data)
+
+# view notes
+@app.command()
+def viewn(id: int):
+    row_data = None
+
+    # find the row with the id
+    with open('datas.csv', 'r') as file:
+        data = csv.reader(file)
+        for row in data:
+            if int(row[0]) == id:
+                row_data = row
+
+    # chck if id exists
+    if row_data == None:
+        print('id not found')
+        return
+
+    # print the result
+    classes = {'1': 'upper',
+               '2': 'middle',
+               '3': 'lower'}
+    print(row_data[0])
+    print('---note---',f'{row_data[1]}',
+          '---class--',f'{classes.get(str(row_data[-1]))}',
+          sep='\n')
+
+@app.command()
+def viewc(classid: int):
+
+    row_data =  [] 
+
+    # find the rows with the class 
+    with open('datas.csv', 'r') as file:
+        data = csv.reader(file)
+        for row in data:
+            if int(row[2]) == classid:
+                row_data = row
+
+    print(row_data)
+
+
 
 
 if __name__ == "__main__":
