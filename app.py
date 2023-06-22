@@ -3,6 +3,11 @@ import csv
 
 app = typer.Typer()
 
+
+classes = {'1': 'upper',
+           '2': 'middle',
+           '3': 'lower'}
+
 # add note
 @app.command()
 def addn(note: str, classid: int=2):
@@ -47,9 +52,6 @@ def viewn(id: int):
         return
 
     # print the result
-    classes = {'1': 'upper',
-               '2': 'middle',
-               '3': 'lower'}
     print(row_data[0])
     print('---note---',f'{row_data[1]}',
           '---class--',f'{classes.get(str(row_data[-1]))}',
@@ -67,14 +69,16 @@ def viewc(classid: int):
             if int(row[2]) == classid:
                 row_data.append(row) 
 
-    # TODO also print the class number and print the id in the heading
+    # make the data pretty
     pretty_data = []
     for row in row_data:
-        data = [row[1], ' | id:', row[0]]
+        data = [row[0], ' | ', row[1]]
         pretty_data.append(data)
 
+    # print the result
+    print(f'--{classes.get(str(classid))}--')
     for i in pretty_data:
-        print(i)
+        print(i[0], i[1], i[2])
 
 
 
