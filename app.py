@@ -65,9 +65,16 @@ def viewc(classid: int):
         data = csv.reader(file)
         for row in data:
             if int(row[2]) == classid:
-                row_data = row
+                row_data.append(row) 
 
-    print(row_data)
+    # TODO also print the class number and print the id in the heading
+    pretty_data = []
+    for row in row_data:
+        data = [row[1], ' | id:', row[0]]
+        pretty_data.append(data)
+
+    for i in pretty_data:
+        print(i)
 
 
 
