@@ -57,6 +57,7 @@ def viewn(id: int):
           '---class--',f'{classes.get(str(row_data[-1]))}',
           sep='\n')
 
+# view class
 @app.command()
 def viewc(classid: int):
 
@@ -80,6 +81,32 @@ def viewc(classid: int):
     for i in pretty_data:
         print(i[0], i[1], i[2])
 
+# delete note
+@app.command()
+def deln(id: int):
+
+    # saving all the notes 
+    all_data = []
+    with open('datas.csv', 'r') as file:
+        data = csv.reader(file)
+        for i in data:
+            all_data.append(i)
+
+    try:
+        all_data.pop(id + 1)
+    except IndexError:
+        print('Note with this id does not exist.')
+        return
+
+    # Update the index numbers of the remaining items
+    all_data = [[index, item[1]] for index, item in enumerate(data)]
+
+    print(all_data)
+    with open('datas.csv', 'w') as file:
+        data = csv.writer(file)
+        data.writerows(all_data)
+
+    
 
 
 
