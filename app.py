@@ -9,7 +9,7 @@ classes = {'1': 'upper',
            '3': 'lower'}
 
 # add note
-@app.command()
+@app.command(help='add new note')
 def addn(note: str, classid: int=2):
 
     # check if Class got any invalid values
@@ -34,55 +34,8 @@ def addn(note: str, classid: int=2):
         data = csv.writer(file)
         data.writerow(note_data)
 
-# view notes
-@app.command()
-def viewn(id: int):
-    row_data = None
-
-    # find the row with the id
-    with open('datas.csv', 'r') as file:
-        data = csv.reader(file)
-        for row in data:
-            if int(row[0]) == id:
-                row_data = row
-
-    # chck if id exists
-    if row_data == None:
-        print('id not found')
-        return
-
-    # print the result
-    print(row_data[0])
-    print('---note---',f'{row_data[1]}',
-          '---class--',f'{classes.get(str(row_data[-1]))}',
-          sep='\n')
-
-# view class
-@app.command()
-def viewc(classid: int):
-
-    row_data =  [] 
-
-    # find the rows with the class 
-    with open('datas.csv', 'r') as file:
-        data = csv.reader(file)
-        for row in data:
-            if int(row[2]) == classid:
-                row_data.append(row) 
-
-    # make the data pretty
-    pretty_data = []
-    for row in row_data:
-        data = [row[0], ' | ', row[1]]
-        pretty_data.append(data)
-
-    # print the result
-    print(f'--{classes.get(str(classid))}--')
-    for i in pretty_data:
-        print(i[0], i[1], i[2])
-
 # delete note
-@app.command()
+@app.command(help='delete note')
 def deln(id: int):
 
     # saving all the notes 
@@ -105,6 +58,54 @@ def deln(id: int):
     with open('datas.csv', 'w') as file:
         data = csv.writer(file)
         data.writerows(all_data)
+
+# view notes
+@app.command(help='view note')
+def viewn(id: int):
+    row_data = None
+
+    # find the row with the id
+    with open('datas.csv', 'r') as file:
+        data = csv.reader(file)
+        for row in data:
+            if int(row[0]) == id:
+                row_data = row
+
+    # chck if id exists
+    if row_data == None:
+        print('id not found')
+        return
+
+    # print the result
+    print(row_data[0])
+    print('---note---',f'{row_data[1]}',
+          '---class--',f'{classes.get(str(row_data[-1]))}',
+          sep='\n')
+
+# view class
+@app.command(help='view notes from there class')
+def viewc(classid: int):
+
+    row_data =  [] 
+
+    # find the rows with the class 
+    with open('datas.csv', 'r') as file:
+        data = csv.reader(file)
+        for row in data:
+            if int(row[2]) == classid:
+                row_data.append(row) 
+
+    # make the data pretty
+    pretty_data = []
+    for row in row_data:
+        data = [row[0], ' | ', row[1]]
+        pretty_data.append(data)
+
+    # print the result
+    print(f'--{classes.get(str(classid))}--')
+    for i in pretty_data:
+        print(i[0], i[1], i[2])
+
 
     
 
