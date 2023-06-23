@@ -83,7 +83,7 @@ def viewn(id: int):
           sep='\n')
 
 # view class
-@app.command(help='view notes from there class')
+@app.command(help='view notes from class id')
 def viewc(classid: int):
 
     row_data =  [] 
@@ -92,13 +92,13 @@ def viewc(classid: int):
     with open('datas.csv', 'r') as file:
         data = csv.reader(file)
         for row in data:
-            if int(row[2]) == classid:
+            if row[2] == str(classid):
                 row_data.append(row) 
 
     # make the data pretty
     pretty_data = []
     for row in row_data:
-        data = [row[0], ' | ', row[1]]
+        data = [row[0], '|', row[1]]
         pretty_data.append(data)
 
     # print the result
@@ -106,8 +106,31 @@ def viewc(classid: int):
     for i in pretty_data:
         print(i[0], i[1], i[2])
 
+# view all notes
+@app.command()
+def viewa():
 
+    # saving all the notes 
+    all_data = []
+    with open('datas.csv', 'r') as file:
+        data = csv.reader(file)
+        for i in data:
+            all_data.append(i)
     
+    # deleting heading row
+    del all_data[0]
+    
+    # make the data pretty
+    pretty_data = []
+    for row in all_data:
+        if len(row) >= 3: 
+            data = [row[0], '|', row[1], '|', row[2]]
+            pretty_data.append(data)
+
+    print('----all notes----')
+    print('--id|note|class--')
+    for i in pretty_data:
+        print(i[0], i[1], i[2], i[3], i[4])
 
 
 
