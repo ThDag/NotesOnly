@@ -107,7 +107,7 @@ def viewc(classid: int):
         print(i[0], i[1], i[2])
 
 # view all notes
-@app.command()
+@app.command(help='view all the notes')
 def viewa():
 
     # saving all the notes 
