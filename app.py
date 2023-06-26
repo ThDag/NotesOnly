@@ -40,11 +40,25 @@ def addn(note: str, classid: int=2):
 @app.command()
 def editn(id: int):
     
+    # getting all the datas
     all_data = []
     with open('datas.csv', 'r') as file:
         data = csv.reader(file)
         for i in data:
             all_data.append(i)
+    del all_data[0]
+
+    
+
+    print('--Note--', all_data[id][1], '--Edited--', sep='\n')
+    new_note = input()
+    all_data[id][1] = new_note
+
+    with open('datas.csv', 'w') as file:
+        data = csv.writer(file)
+        data.writerows(all_data)
+
+    print('-------')
 
 
 # delete note
@@ -67,7 +81,6 @@ def deln(id: int):
     # Update the index numbers of the remaining items
     all_data = [[index, item[1]] for index, item in enumerate(data)]
 
-    print(all_data)
     with open('datas.csv', 'w') as file:
         data = csv.writer(file)
         data.writerows(all_data)
