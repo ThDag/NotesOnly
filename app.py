@@ -34,6 +34,19 @@ def addn(note: str, classid: int=2):
         data = csv.writer(file)
         data.writerow(note_data)
 
+    print('note added id:', note_id)
+
+# edit note
+@app.command()
+def editn(id: int):
+    
+    all_data = []
+    with open('datas.csv', 'r') as file:
+        data = csv.reader(file)
+        for i in data:
+            all_data.append(i)
+
+
 # delete note
 @app.command(help='delete note')
 def deln(id: int):
