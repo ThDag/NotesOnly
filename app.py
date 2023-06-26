@@ -37,7 +37,7 @@ def addn(note: str, classid: int=2):
     print('note added id:', note_id)
 
 # edit note
-@app.command()
+@app.command(help = 'edit note with note id')
 def editn(id: int):
     
     # getting all the datas
