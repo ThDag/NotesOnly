@@ -34,7 +34,7 @@ def addn(note: str, classid: int=2):
         data = csv.writer(file)
         data.writerow(note_data)
 
-    print('note added id:', note_id)
+    print(f'note "{note}" added id:', note_id)
 
 # edit note
 @app.command(help = 'edit note with note id')
@@ -46,9 +46,7 @@ def editn(id: int):
         data = csv.reader(file)
         for i in data:
             all_data.append(i)
-    del all_data[0]
 
-    
 
     print('--Note--', all_data[id][1], '--Edited--', sep='\n')
     new_note = input()
@@ -73,17 +71,19 @@ def deln(id: int):
             all_data.append(i)
 
     try:
-        all_data.pop(id + 1)
+        all_data.pop(id)
     except IndexError:
         print('Note with this id does not exist.')
         return
 
     # Update the index numbers of the remaining items
-    all_data = [[index, item[1]] for index, item in enumerate(data)]
+    all_data = [[index, item[1], item[2]] for index, item in enumerate(all_data)]
 
     with open('/Users/mac/desktop/programming/notesonly/datas.csv', 'w') as file:
         data = csv.writer(file)
         data.writerows(all_data)
+
+    print('note deleted:', all_data[id - 1][1])
 
 # view notes
 @app.command(help='view note')
@@ -103,7 +103,6 @@ def viewn(id: int):
         return
 
     # print the result
-    print(row_data[0])
     print('---note---',f'{row_data[1]}',
           '---class--',f'{classes.get(str(row_data[-1]))}',
           sep='\n')
