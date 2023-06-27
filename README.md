@@ -18,7 +18,6 @@ notes in class it has 3 classes; <br>
 
 Classes are given to notes using there id numbers
 
-<!--- add images here of commands being used --->
 
 # how to setup system-wide noon command
 **Note**: in the examples the command `noon` is used, if this is not setup 
@@ -58,6 +57,8 @@ this will add a new middle class note
 if note parameter contains white space it has to be covered
 with quote character.
 
+<img src="screenshots/addn.png" alt="Image Description" width="400"/>
+
 ## deln
 Delete note
 
@@ -73,6 +74,8 @@ the note id
 to see whats the id of a note [see all notes](#viewa)
 or see what you are deleting with [viewn](#viewn)
 
+<img src="screenshots/deln.png" alt="Image Description" width="400"/>
+
 ## editn
 Edit note
 
@@ -87,6 +90,8 @@ the note id
 
 todo!!**add here output images for editn**!! 
 
+<img src="screenshots/editn.png" alt="Image Description" width="400"/>
+
 ## viewn
 View a specific note
 
@@ -98,6 +103,8 @@ this will print the note with the **id number 2**
 
 **viewn** takes 1 parameter: note id, prints the note with
 the note id
+
+<img src="screenshots/viewn.png" alt="Image Description" width="400"/>
 
 ## viewc
 View a specific class
@@ -113,6 +120,8 @@ the class id
 
 there is only 3 class ids: [Class feature](#Class-feature) 
 
+<img src="screenshots/viewc.png" alt="Image Description" width="400"/>
+
 ## viewa
 view all the notes
 
@@ -123,6 +132,8 @@ noon viewa
 this will print all the notes
 
 **viewn** takes no parameter just prints all the notes
+
+<img src="screenshots/viewa.png" alt="Image Description" width="400"/>
 
 # Installation
 
