@@ -18,11 +18,6 @@ def get_all_data():
     del all_data[0]
     return all_data
 
-# add class
-@app.command(help='add new class')
-def addc(class_name: str):
-
-
 
 
 # add note
