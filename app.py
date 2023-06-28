@@ -1,5 +1,6 @@
 import typer
 import csv
+import os
 
 app = typer.Typer()
 
@@ -8,9 +9,13 @@ classes = {'1': 'upper',
            '2': 'middle',
            '3': 'lower'}
 
+# get the cwd 
+pwd = os.path.dirname(__file__)
+print(pwd)
+
 def get_all_data():
     all_data = []
-    with open('/Users/mac/desktop/programming/notesonly/datas.csv', 'r') as file:
+    with open(f'{pwd}/datas.csv', 'r') as file:
         data = csv.reader(file)
         for i in data:
             all_data.append(i)
@@ -30,7 +35,7 @@ def addn(note: str, classid: int=2):
 
     # append the note
     note_data = [note_id, note, classid]
-    with open('/Users/mac/desktop/programming/notesonly/datas.csv', 'a') as file:
+    with open(f'{pwd}/datas.csv', 'a') as file:
         data = csv.writer(file)
         data.writerow(note_data)
 
@@ -48,7 +53,7 @@ def editn(id: int):
     new_note = input()
     all_data[id][1] = new_note
 
-    with open('/Users/mac/desktop/programming/notesonly/datas.csv', 'w') as file:
+    with open(f'{pwd}/datas.csv', 'w') as file:
         data = csv.writer(file)
         data.writerows(all_data)
 
@@ -72,7 +77,7 @@ def deln(id: int):
     # Update the index numbers of the remaining items
     all_data = [[index, item[1], item[2]] for index, item in enumerate(all_data)]
 
-    with open('/Users/mac/desktop/programming/notesonly/datas.csv', 'w') as file:
+    with open(f'{pwd}/datas.csv', 'w') as file:
         data = csv.writer(file)
         data.writerows(all_data)
 
@@ -84,7 +89,7 @@ def viewn(id: int):
     row_data = None
 
     # find the row with the id
-    with open('/Users/mac/desktop/programming/notesonly/datas.csv', 'r') as file:
+    with open(f'{pwd}/datas.csv', 'r') as file:
         data = csv.reader(file)
         for row in data:
             if int(row[0]) == id:
@@ -107,7 +112,7 @@ def viewc(classid: int):
     row_data =  [] 
 
     # find the rows with the class 
-    with open('/Users/mac/desktop/programming/notesonly/datas.csv', 'r') as file:
+    with open(f'{pwd}/datas.csv', 'r') as file:
         data = csv.reader(file)
         for row in data:
             if row[2] == str(classid):
