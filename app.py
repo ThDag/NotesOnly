@@ -11,7 +11,6 @@ classes = {'1': 'upper',
 
 # get the cwd 
 pwd = os.path.dirname(__file__)
-print(pwd)
 
 def get_all_data():
     all_data = []
@@ -88,16 +87,11 @@ def deln(id: int):
 def viewn(id: int):
     row_data = None
 
-    # find the row with the id
-    with open(f'{pwd}/datas.csv', 'r') as file:
-        data = csv.reader(file)
-        for row in data:
-            if int(row[0]) == id:
-                row_data = row
-
-    # chck if id exists
-    if row_data == None:
-        print('id not found')
+    all_data = get_all_data()
+    try:
+        row_data = all_data[id]
+    except IndexError:
+        print('Note with this id does not exist.')
         return
 
     # print the result
@@ -111,12 +105,12 @@ def viewc(classid: int):
 
     row_data =  [] 
 
-    # find the rows with the class 
-    with open(f'{pwd}/datas.csv', 'r') as file:
-        data = csv.reader(file)
-        for row in data:
-            if row[2] == str(classid):
-                row_data.append(row) 
+    all_data = get_all_data()
+    # all the items with the class id of Classid from all_data
+    for row in all_data:
+        if row[2] == str(classid):
+            row_data.append(row)
+
 
     # make the data pretty
     pretty_data = []
