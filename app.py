@@ -61,6 +61,7 @@ def deln(id: int):
 
     # saving all the notes 
     all_data = get_all_data()
+    deleted_note = all_data[id][1]
 
     try:
         all_data.pop(id)
@@ -75,7 +76,7 @@ def deln(id: int):
         data = csv.writer(file)
         data.writerows(all_data)
 
-    print('note deleted:', all_data[id - 1][1])
+    print('note deleted:', deleted_note)
 
 # view notes
 @app.command(help='view note')
