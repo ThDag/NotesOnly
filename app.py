@@ -1,4 +1,3 @@
-from os import kill
 import typer
 import csv
 
@@ -15,7 +14,6 @@ def get_all_data():
         data = csv.reader(file)
         for i in data:
             all_data.append(i)
-    del all_data[0]
     return all_data
 
 
@@ -28,18 +26,7 @@ def addn(note: str, classid: int=2):
     if 4 <= classid or classid <= 0:
         raise ValueError('Classid parameter can only get; 1, 2, 3')
 
-    # get the newest note_id
-    with open('/Users/mac/desktop/programming/notesonly/datas.csv', 'r') as file:
-        data = csv.reader(file)
-        last_row = None
-        for row in data:
-            last_row = row
-
-        if last_row:
-            note_id = int(last_row[0]) + 1
-        else:
-            note_id = 0
-
+    note_id = len(get_all_data()) + 1
 
     # append the note
     note_data = [note_id, note, classid]
