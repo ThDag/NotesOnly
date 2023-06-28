@@ -1,3 +1,4 @@
+from os import kill
 import typer
 import csv
 
@@ -7,6 +8,22 @@ app = typer.Typer()
 classes = {'1': 'upper',
            '2': 'middle',
            '3': 'lower'}
+
+def get_all_data():
+    all_data = []
+    with open('/Users/mac/desktop/programming/notesonly/datas.csv', 'r') as file:
+        data = csv.reader(file)
+        for i in data:
+            all_data.append(i)
+    del all_data[0]
+    return all_data
+
+# add class
+@app.command(help='add new class')
+def addc(class_name: str):
+
+
+
 
 # add note
 @app.command(help='add new note')
@@ -28,6 +45,7 @@ def addn(note: str, classid: int=2):
         else:
             note_id = 0
 
+
     # append the note
     note_data = [note_id, note, classid]
     with open('/Users/mac/desktop/programming/notesonly/datas.csv', 'a') as file:
@@ -41,11 +59,7 @@ def addn(note: str, classid: int=2):
 def editn(id: int):
     
     # getting all the datas
-    all_data = []
-    with open('/Users/mac/desktop/programming/notesonly/datas.csv', 'r') as file:
-        data = csv.reader(file)
-        for i in data:
-            all_data.append(i)
+    all_data = get_all_data()
 
 
     print('--Note--', all_data[id][1], '--Edited--', sep='\n')
@@ -64,11 +78,7 @@ def editn(id: int):
 def deln(id: int):
 
     # saving all the notes 
-    all_data = []
-    with open('/Users/mac/desktop/programming/notesonly/datas.csv', 'r') as file:
-        data = csv.reader(file)
-        for i in data:
-            all_data.append(i)
+    all_data = get_all_data()
 
     try:
         all_data.pop(id)
@@ -136,15 +146,8 @@ def viewc(classid: int):
 def viewa():
 
     # saving all the notes 
-    all_data = []
-    with open('/Users/mac/desktop/programming/notesonly/datas.csv', 'r') as file:
-        data = csv.reader(file)
-        for i in data:
-            all_data.append(i)
-    
-    # deleting heading row
-    del all_data[0]
-    
+    all_data = get_all_data()   
+
     # make the data pretty
     pretty_data = []
     for row in all_data:
