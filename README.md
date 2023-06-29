@@ -6,7 +6,7 @@ note-taking = storing single line plain text
 
 This project uses Typer and to store the file a csv file is used (datas.csv)
 
-this program is still very inconvenient to use with long syntaxes
+this program is still very inconvenient to use with long syntaxes(will change in the future)
 
 ## Class-feature
 The class feature is a way to organize your notes. 
