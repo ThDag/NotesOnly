@@ -27,8 +27,11 @@ Ex.
 ```bash
 python ~/desktop/programming/NotesOnly/app.py addn "setup noon" --classid=1
 ```
-
-todo!!*fill here*!!
+---
+### In order to setup `noon` command execute the following command
+```bash
+sudo python app.py
+```
 
 # Usage
 
