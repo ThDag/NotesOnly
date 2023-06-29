@@ -1,3 +1,4 @@
+from typing import Annotated
 import typer
 import csv
 import os
@@ -23,7 +24,7 @@ def get_all_data():
 
 # add note
 @app.command(help='add new note')
-def addn(note: str, classid: int=2):
+def addn(note: str, classid: Annotated[int, typer.Argument()]=2):
 
     # check if Class got any invalid values
     if 4 <= classid or classid <= 0:

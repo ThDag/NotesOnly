@@ -51,13 +51,13 @@ Add a new note.
 
 Ex.
 ```bash
-noon addn 'this is a new note' --classid=2
+noon addn 'this is a new note' 2
 ```
 this will add a new middle class note
 
-**addn** takes 1 parameter: note, 1 argument: --classid
+**addn** takes 2 argument: note, classid
 
-if note parameter contains white space it has to be covered
+if note argument contains white space it has to be covered
 with quote character.
 
 <img src="screenshots/addn.png" alt="Image Description" width="400"/>
