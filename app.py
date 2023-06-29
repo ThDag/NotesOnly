@@ -4,7 +4,6 @@ import os
 
 app = typer.Typer()
 
-
 classes = {'1': 'upper',
            '2': 'middle',
            '3': 'lower'}
