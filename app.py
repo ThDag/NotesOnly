@@ -12,6 +12,7 @@ classes = {'1': 'upper',
 # get the cwd 
 pwd = os.path.dirname(__file__)
 
+# gets all the data from the csv file 
 def get_all_data():
     all_data = []
     with open(f'{pwd}/datas.csv', 'r') as file:
@@ -30,10 +31,10 @@ def addn(note: str, classid: Annotated[int, typer.Argument()]=2):
     if 4 <= classid or classid <= 0:
         raise ValueError('Classid parameter can only get; 1, 2, 3')
 
-    note_id = len(get_all_data()) + 1
+    note_id = len(get_all_data())
 
     # append the note
-    note_data = [note_id, note, classid]
+    note_data = [note, classid]
     with open(f'{pwd}/datas.csv', 'a') as file:
         data = csv.writer(file)
         data.writerow(note_data)
@@ -48,9 +49,9 @@ def editn(id: int):
     all_data = get_all_data()
 
 
-    print('--Note--', all_data[id][1], '--Edited--', sep='\n')
+    print('--Note--', all_data[id][0], '--Edited--', sep='\n')
     new_note = input()
-    all_data[id][1] = new_note
+    all_data[id][0] = new_note
 
     with open(f'{pwd}/datas.csv', 'w') as file:
         data = csv.writer(file)
@@ -65,16 +66,13 @@ def deln(id: int):
 
     # saving all the notes 
     all_data = get_all_data()
-    deleted_note = all_data[id][1]
+    deleted_note = all_data[id][0]
 
     try:
         all_data.pop(id)
     except IndexError:
         print('Note with this id does not exist.')
         return
-
-    # Update the index numbers of the remaining items
-    all_data = [[index, item[1], item[2]] for index, item in enumerate(all_data)]
 
     with open(f'{pwd}/datas.csv', 'w') as file:
         data = csv.writer(file)
@@ -95,7 +93,7 @@ def viewn(id: int):
         return
 
     # print the result
-    print('---note---',f'{row_data[1]}',
+    print('---note---',f'{row_data[0]}',
           '---class--',f'{classes.get(str(row_data[-1]))}',
           sep='\n')
 
@@ -107,8 +105,9 @@ def viewc(classid: int):
 
     all_data = get_all_data()
     # all the items with the class id of Classid from all_data
-    for row in all_data:
-        if row[2] == str(classid):
+    for id, row in enumerate(all_data):
+        if row[-1] == str(classid):
+            row = [id, row[0]]
             row_data.append(row)
 
 
@@ -132,10 +131,28 @@ def viewa():
 
     # make the data pretty
     pretty_data = []
-    for row in all_data:
-        if len(row) >= 3: 
-            data = [row[0], '|', row[1], '|', row[2]]
+    for id, row in enumerate(all_data):
+        if len(row) >= 2: 
+            data = [id, '|', row[0], '|', row[1]]
             pretty_data.append(data)
+
+        else:
+            print('keep in mind syntax is wrong')
+
+    # aligning the print file
+
+    # get the longest note
+    longest_note = 0
+    for i in pretty_data:
+        if len(i[2]) > longest_note:
+            longest_note = len(i[2])
+
+    for ind, i in enumerate(pretty_data):
+        diffirence = longest_note - len(i[2])
+        i[2] = i[2] + ' ' * diffirence
+        pretty_data[ind][2] = i[2]
+        
+
 
     print('----all notes----')
     print('--id|note|class--')
