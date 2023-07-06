@@ -61,17 +61,29 @@ def editn(id: Annotated[int, typer.Argument(help='id of the note to edit')]):
 
 # delete note
 @app.command(help='delete note')
-def deln(id: Annotated[int, typer.Argument(help='id of the note to delete')]):
+def deln(id: Annotated[str, typer.Argument(help='id of the note to delete')]):
 
     # saving all the notes 
     all_data = get_all_data()
-    deleted_note = all_data[id][0]
+    print(all_data)
+    
+    if id == '00':
+        # the last item in all_data
+        deleted_note = all_data[-1][0]
+        # delete last item
+        all_data.pop()
 
-    try:
-        all_data.pop(id)
-    except IndexError:
-        print('Note with this id does not exist.')
-        return
+
+
+    else:
+        int_id = int(id)
+        deleted_note = all_data[int_id][0]
+
+        try:
+            all_data.pop(int_id)
+        except IndexError:
+            print('Note with this id does not exist.')
+            return
 
     with open(f'{pwd}/datas.csv', 'w') as file:
         data = csv.writer(file)

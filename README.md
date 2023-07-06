@@ -74,6 +74,8 @@ this will delete the note with **id number 2**
 **deln** takes 1 parameter: note id, deletes the note with
 the note id
 
+**Note**: give the index number '00' to delete the last/newest note
+
 to see whats the id of a note [see all notes](#viewa)
 or see what you are deleting with [viewn](#viewn)
 
