@@ -22,10 +22,9 @@ def get_all_data():
     return all_data
 
 
-
 # add note
 @app.command(help='add new note')
-def addn(note: str, classid: Annotated[int, typer.Argument()]=2):
+def addn(note: str, classid: Annotated[int, typer.Argument(help='id of the note\'s class')]=2):
 
     # check if Class got any invalid values
     if 4 <= classid or classid <= 0:
@@ -43,7 +42,7 @@ def addn(note: str, classid: Annotated[int, typer.Argument()]=2):
 
 # edit note
 @app.command(help = 'edit note with note id')
-def editn(id: int):
+def editn(id: Annotated[int, typer.Argument(help='id of the note to edit')]):
     
     # getting all the datas
     all_data = get_all_data()
@@ -62,7 +61,7 @@ def editn(id: int):
 
 # delete note
 @app.command(help='delete note')
-def deln(id: int):
+def deln(id: Annotated[int, typer.Argument(help='id of the note to delete')]):
 
     # saving all the notes 
     all_data = get_all_data()
@@ -82,7 +81,7 @@ def deln(id: int):
 
 # view notes
 @app.command(help='view note')
-def viewn(id: int):
+def viewn(id: Annotated[int, typer.Argument(help='id of the note to view')]):
     row_data = None
 
     all_data = get_all_data()
@@ -99,7 +98,7 @@ def viewn(id: int):
 
 # view class
 @app.command(help='view notes from class id')
-def viewc(classid: int):
+def viewc(classid: Annotated[int, typer.Argument(help='id of the class to view')]):
 
     row_data =  [] 
 
