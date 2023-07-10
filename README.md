@@ -2,11 +2,10 @@
 ### simple CLI note-taking app
 ### Takes notes directly from your terminal
 
-note-taking = storing single line plain text
+note-taking = storing plain text
 
 This project uses Typer and to store the file a csv file is used (datas.csv)
 
-this program is still very inconvenient to use with long syntaxes(will change in the future)
 
 ## Class-feature
 The class feature is a way to organize your notes. 
@@ -19,13 +18,13 @@ notes in class it has 3 classes; <br>
 Classes are given to notes using there id numbers
 
 
-# how to setup system-wide noon command
+# how to setup system-wide `noon` command
 **Note**: in the examples the command `noon` is used, if this is not setup 
-running `app.py` with full path from anywhere in computer can be used(very inconvenient)
+running `app.py` with full path from anywhere in computer can be used (very inconvenient)
 
 Ex.
 ```bash
-python ~/desktop/programming/NotesOnly/app.py addn "setup noon" --classid=1
+python ~/desktop/programming/NotesOnly/app.py addn "setup noon" 1
 ```
 ---
 ### In order to setup `noon` command execute the following command

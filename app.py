@@ -93,17 +93,22 @@ def deln(id: Annotated[str, typer.Argument(help='id of the note to delete')]):
 
 # view notes
 @app.command(help='view note')
-def viewn(id: Annotated[int, typer.Argument(help='id of the note to view')]):
+def viewn(id: Annotated[str, typer.Argument(help='id of the note to view')]):
     row_data = None
     all_data = get_all_data()
 
-    if str(id) == '00':
+    if id == '00':
         row_data = all_data[-1]
 
     else:
+        try:
+            intd = int(id)
+        except:
+            print('note id is just numbers')
+            return
 
         try:
-            row_data = all_data[id]
+            row_data = all_data[intd]
         except IndexError:
             print('Note with this id does not exist.')
             return
