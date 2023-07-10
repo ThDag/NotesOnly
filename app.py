@@ -42,15 +42,26 @@ def addn(note: str, classid: Annotated[int, typer.Argument(help='id of the note\
 
 # edit note
 @app.command(help = 'edit note with note id')
-def editn(id: Annotated[int, typer.Argument(help='id of the note to edit')]):
+def editn(id: Annotated[str, typer.Argument(help='id of the note to edit')]):
     
     # getting all the datas
     all_data = get_all_data()
 
 
-    print('--Note--', all_data[id][0], '--Edited--', sep='\n')
-    new_note = input()
-    all_data[id][0] = new_note
+    if id == '00':
+        pass
+
+    else:
+        try:
+            int_id = int(id)
+
+        except:
+            print('note id is just number')
+            return
+
+        print('--Note--', all_data[int_id][0], '--Edited--', sep='\n')
+        new_note = input()
+        all_data[int_id][0] = new_note
 
     with open(f'{pwd}/datas.csv', 'w') as file:
         data = csv.writer(file)
@@ -102,13 +113,13 @@ def viewn(id: Annotated[str, typer.Argument(help='id of the note to view')]):
 
     else:
         try:
-            intd = int(id)
+            int_id = int(id)
         except:
             print('note id is just numbers')
             return
 
         try:
-            row_data = all_data[intd]
+            row_data = all_data[int_id]
         except IndexError:
             print('Note with this id does not exist.')
             return
