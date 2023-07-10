@@ -49,7 +49,10 @@ def editn(id: Annotated[str, typer.Argument(help='id of the note to edit')]):
 
 
     if id == '00':
-        pass
+        print('--Note--', all_data[-1][0], '--Edited--', sep='\n')
+        new_note = input()
+        all_data[-1][0] = new_note
+        
 
     else:
         try:
