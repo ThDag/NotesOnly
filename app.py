@@ -2,6 +2,7 @@ from typing import Annotated
 import typer
 import csv
 import os
+import sys
 
 app = typer.Typer()
 
@@ -22,9 +23,18 @@ def get_all_data():
     return all_data
 
 
-# add note
+# add note                      
 @app.command(help='add new note')
-def addn(note: str, classid: Annotated[int, typer.Argument(help='id of the note\'s class')]=2):
+def addn(classid: Annotated[int, typer.Argument(help='id of the note\'s class')]=422):
+    # the 422 is used as None with keeping it as int and when its 422 it will ask for input
+    # for the classid its primarily used for the 'noon' command without the addn sub command
+    if classid == 422:
+        print('<====------========{class id}========------====>')
+        try:
+            classid = int(input('1/2/3 : '))
+        except:
+            print('only one of those options excepted.')
+            return
 
     # check if Class got any invalid values
     if 4 <= classid or classid <= 0:
@@ -32,13 +42,17 @@ def addn(note: str, classid: Annotated[int, typer.Argument(help='id of the note\
 
     note_id = len(get_all_data())
 
+    print('<====------=========={note}==========------====>')
+    note = input()
+    print('<====------==========================------====>')
+
     # append the note
     note_data = [note, classid]
     with open(f'{pwd}/datas.csv', 'a') as file:
         data = csv.writer(file)
         data.writerow(note_data)
 
-    print(f'note "{note}" added id:', note_id)
+    print(f'note "{note}" class: {classid} id: {note_id} added.')
 
 # edit note
 @app.command(help = 'edit note with note id')
@@ -194,7 +208,19 @@ def viewa():
     for i in pretty_data:
         print(i[0], i[1], i[2], i[3], i[4])
 
-
-
-if __name__ == "__main__":
-    app()
+# run the code command is used to check if the noon command is used alone then the __name__ == __main__ and the app()
+# is not executed because it gives error saying it need a sub command etc (i couldent find a way to quit the code)
+run_the_code = 1
+if len(sys.argv) == 1:
+    run_the_code = 0
+    """
+    after making the addn command interactive which means it will not ask for any arguments
+    use addn() to run the code when there is no arguments spesified 
+    currently it needs arguments which has to spesifed with sys.argv which is possible but
+    i already have to make it interactive
+    """
+    addn()
+    
+if run_the_code:
+    if __name__ == "__main__":
+        app()
