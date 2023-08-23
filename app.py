@@ -93,7 +93,6 @@ def deln(id: Annotated[str, typer.Argument(help='id of the note to delete')]):
 
     # saving all the notes 
     all_data = get_all_data()
-    print(all_data)
     
     if id == '00':
         # the last item in all_data

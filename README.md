@@ -2,7 +2,10 @@
 ### simple CLI note-taking app
 ### Takes notes directly from your terminal
 
-note-taking = storing plain text
+note-taking = storing plain single-line text
+
+this app is mainly intended for any OS that doesn't have GUI and solves the struggle of storing
+text for future usage.
 
 This project uses Typer and to store the file a csv file is used (datas.csv)
 
@@ -19,6 +22,11 @@ Classes are given to notes using there id numbers
 
 
 # how to setup system-wide `noon` command
+just run the `setup.py` file 
+```bash
+sudo python setup.py
+```
+---
 **Note**: in the examples the command `noon` is used, if this is not setup 
 running `app.py` with full path from anywhere in computer can be used (very inconvenient)
 
@@ -26,16 +34,11 @@ Ex.
 ```bash
 python ~/desktop/programming/NotesOnly/app.py addn "setup noon" 1
 ```
----
-### In order to setup `noon` command execute the following command
-```bash
-sudo python app.py
-```
 
 # Usage
 
 NotesOnly tool is extremely simple and easy-to-use,
-using only simple terminal commands with little parameters.
+using simple terminal commands with little parameters.
 
 **containing only 6 functions** <br>
 1. [addn](#addn)
@@ -50,16 +53,18 @@ Add a new note.
 
 Ex.
 ```bash
-noon addn 'this is a new note' 2
+noon addn 2
 ```
+> then enter the note in the interactive note entry window
+
 this will add a new middle class note
 
-**addn** takes 2 argument: note, classid
+**addn** takes 1 argument: classid
 
-if note argument contains white space it has to be covered
-with quote character.
 
-<img src="screenshots/addn.png" alt="Image Description" width="400"/>
+<img src="screenshots/interactive-addn.png" alt="Image Description" width="900"/>
+
+> if class id is not spesified it will present with a interactive class id selection window
 
 ## deln
 Delete note
