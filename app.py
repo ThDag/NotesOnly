@@ -118,6 +118,23 @@ def deln(id: Annotated[str, typer.Argument(help='id of the note to delete')]):
 
     print('note deleted:', deleted_note)
 
+
+
+@app.command(help='delete all the notes')
+def dela():
+    print('!THIS WILL DELETE ALL THE NOTES!')
+    a = input("Please type \'yes\' to comfirm: ")
+    if a == 'yes':
+        file = open(f'{pwd}/datas.csv', 'w')
+        file.close
+        print('All the notes are deleted.')
+
+
+
+    else:
+        print('Deletion cancelled.')
+        return
+
 # view notes
 @app.command(help='view note')
 def viewn(id: Annotated[str, typer.Argument(help='id of the note to view')]):
