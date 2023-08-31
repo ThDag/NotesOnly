@@ -1,4 +1,4 @@
-from typing import Annotated
+from typing import Annotated, List
 import typer
 import csv
 import os
@@ -89,34 +89,44 @@ def editn(id: Annotated[str, typer.Argument(help='id of the note to edit')]):
 
 # delete note
 @app.command(help='delete note')
-def deln(id: Annotated[str, typer.Argument(help='id of the note to delete')]):
+def deln(id: Annotated[List[str], typer.Argument(help='id of the note to delete')]):
 
     # saving all the notes 
     all_data = get_all_data()
     
+    # deleted notes for visual feed back to the user
+    deleted_notes = []
+
     if id == '00':
         # the last item in all_data
-        deleted_note = all_data[-1][0]
+        deleted_notes.append(all_data[-1][0])
         # delete last item
         all_data.pop()
 
 
 
     else:
-        int_id = int(id)
-        deleted_note = all_data[int_id][0]
+        # gets the id's given from the user and sorts them in reverse order
+        ids = tuple(int(num) for num in id)
+        ids = tuple(sorted(ids, reverse=True))
 
-        try:
-            all_data.pop(int_id)
-        except IndexError:
-            print('Note with this id does not exist.')
-            return
+        for i in ids:
+            int_id = int(i)
 
-    with open(f'{pwd}/datas.csv', 'w') as file:
-        data = csv.writer(file)
-        data.writerows(all_data)
+            try:
+                deleted_notes.append(all_data[int_id][0])
+                all_data.pop(int_id)
+            except IndexError:
+                print('Note with this id does not exist.')
+                return
 
-    print('note deleted:', deleted_note)
+        with open(f'{pwd}/datas.csv', 'w') as file:
+            data = csv.writer(file)
+            data.writerows(all_data)
+
+        # revesing the list so it will be in the right order as they are deleted
+        deleted_notes = deleted_notes.reverse()
+        print('note(s) deleted:', deleted_notes)
 
 
 
