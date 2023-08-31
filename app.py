@@ -125,8 +125,10 @@ def deln(id: Annotated[List[str], typer.Argument(help='id of the note to delete'
             data.writerows(all_data)
 
         # revesing the list so it will be in the right order as they are deleted
-        deleted_notes = deleted_notes.reverse()
-        print('note(s) deleted:', deleted_notes)
+        deleted_notes.reverse()
+        deleted_notes_str = ', '.join(deleted_notes)
+
+        print('note(s) deleted:', deleted_notes_str)
 
 
 

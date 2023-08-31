@@ -14,9 +14,6 @@
 # if __name__ == '__main__':
 #     app()
 
-sttt = (21, 42, 4, 56)
-
-sttg = tuple(sorted(sttt, reverse=True))
-
-for i in sttg:
-    print(i)
+sss = ['fsldfk', 'djslkfjsl', 'dfjsklf']
+sss.reverse()
+print(sss)
