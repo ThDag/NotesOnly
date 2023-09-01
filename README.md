@@ -43,10 +43,11 @@ using simple terminal commands with little parameters.
 **containing only 6 functions** <br>
 1. [addn](#addn)
 2. [deln](#deln)
-3. [editn](#editn) 
-4. [viewn](#viewn)
-5. [viewc](#viewc)
-6. [viewa](#viewa)
+3. [dela](#dela)
+4. [editn](#editn) 
+5. [viewn](#viewn)
+6. [viewc](#viewc)
+7. [viewa](#viewa)
 
 ## addn
 Add a new note.
@@ -76,7 +77,9 @@ noon deln 2
 this will delete the note with **id number 2**
 
 **deln** takes 1 parameter: note id, deletes the note with
-the note id
+the note id. 
+*Note*: note id can take any number of ids seperated with white space
+it will delete all the listed notes.
 
 **Note**: give the index number '00' to delete the last/newest note
 
@@ -84,6 +87,20 @@ to see whats the id of a note [see all notes](#viewa)
 or see what you are deleting with [viewn](#viewn)
 
 <img src="screenshots/deln.png" alt="Image Description" width="400"/>
+
+
+## dela
+Delete all the notes
+
+```bash
+noon dela
+```
+this will activate a interactive windows asking for confirmation to delete all the notes
+then it will proceed to delete all the notes.
+
+**dela** takes no arguments. But it asks for confirmation before deleting all the notes.
+
+<img src="screenshots/dela.png" alt="Image Description" width="400"/>
 
 ## editn
 Edit note
