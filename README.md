@@ -1,4 +1,5 @@
 # NotesOnly
+![noon logo](screenshots/noon-logo.png)
 ### simple CLI note-taking app
 ### Takes notes directly from your terminal
 
