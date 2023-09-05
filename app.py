@@ -15,7 +15,7 @@ editn; edit note
 viewn; view note
 viewc; view class
 viewa; view all
-- sern; search note
+sern; search note
 '''
 
 
