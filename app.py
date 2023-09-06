@@ -255,10 +255,12 @@ def viewa():
 @app.command(help='search for notes')
 def sern():
 
-
     print('<====------========={search}=========------====>')
     search_query = input()
+    print('<====------======={class id\'s}=======------====>')
+    search_class = input('1/2/3 : ')
     print('<====------==========================------====>')
+
 
     # data of the results
     row_data = []
@@ -267,7 +269,7 @@ def sern():
 
     # search for the query
     for id, row in enumerate(all_data):
-        if search_query in row[0]:
+        if search_query in row[0] and row[-1] == search_class:
             row = [id, row[0], row[1]]
             row_data.append(row)
 
