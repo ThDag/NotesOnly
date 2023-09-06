@@ -6,6 +6,20 @@ import sys
 
 app = typer.Typer()
 
+'''
+Commands:
+addn; add note
+deln; delete note
+dela; delete all notes  
+editn; edit note
+viewn; view note
+viewc; view class
+viewa; view all
+sern; search note
+'''
+
+
+
 classes = {'1': 'upper',
            '2': 'middle',
            '3': 'lower'}
@@ -224,6 +238,7 @@ def viewa():
         if len(i[2]) > longest_note:
             longest_note = len(i[2])
 
+    # add spaces to the end of the note to make it evenly spaced
     for ind, i in enumerate(pretty_data):
         diffirence = longest_note - len(i[2])
         i[2] = i[2] + ' ' * diffirence
@@ -235,6 +250,51 @@ def viewa():
     print('--id|note|class--')
     for i in pretty_data:
         print(i[0], i[1], i[2], i[3], i[4])
+
+
+@app.command(help='search for notes')
+def sern():
+
+
+    print('<====------========={search}=========------====>')
+    search_query = input()
+    print('<====------==========================------====>')
+
+    # data of the results
+    row_data = []
+
+    all_data = get_all_data()
+
+    # search for the query
+    for id, row in enumerate(all_data):
+        if search_query in row[0]:
+            row = [id, row[0], row[1]]
+            row_data.append(row)
+
+    # make the data pretty
+    pretty_data = []
+    for row in row_data:
+        data = [row[0], '|', row[1], '|', row[2]]
+        pretty_data.append(data)
+
+    # get the longest note
+    longest_note = 0
+    for i in pretty_data:
+        if len(i[2]) > longest_note:
+            longest_note = len(i[2])
+
+    # add spaces to the end of the note to make it evenly spaced
+    for ind, i in enumerate(pretty_data):
+        diffirence = longest_note - len(i[2])
+        i[2] = i[2] + ' ' * diffirence
+        pretty_data[ind][2] = i[2]
+
+    print('----all notes----')
+    print('--id|note|class--')
+    for i in pretty_data:
+        print(i[0], i[1], i[2], i[3], i[4])
+
+
 
 # run the code command is used to check if the noon command is used alone then the __name__ == __main__ and the app()
 # is not executed because it gives error saying it need a sub command etc (i couldent find a way to quit the code)
