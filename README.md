@@ -157,7 +157,7 @@ noon viewa
 ```
 this will print all the notes
 
-**viewn** takes no parameter just prints all the notes
+**viewa** takes no parameter just prints all the notes
 
 <img src="screenshots/viewa.png" alt="Image Description" width="400"/>
 
