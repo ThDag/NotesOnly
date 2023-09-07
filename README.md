@@ -131,7 +131,7 @@ Delete all the notes
 ```bash
 noon dela
 ```
-this will activate a interactive windows asking for confirmation to delete all the notes
+this will activate a interactive window asking for confirmation to delete all the notes
 then it will proceed to delete all the notes.
 
 **dela** takes no arguments. But it asks for confirmation before deleting all the notes.
@@ -146,12 +146,10 @@ Ex.
 ```editn
 noon editn 2
 ```
-this will open cli to edit note with the **id number 2**
+this will open interactive window to edit note with the **id number 2**
 
 **editn** takes 1 parameter: note id, edits the note with
 the note id
-
-todo!!**add here output images for editn**!! 
 
 <img src="screenshots/editn.png" alt="Image Description" width="400"/>
 
@@ -208,6 +206,7 @@ search for notes
 ```bash
 noon sern 1 2
 ```
+> then enter the query you want to search in interactive window
 This will search in the 1 and 2 classes.
 
 **sern** takes 1 parameter; class_id is the classes to filter.
