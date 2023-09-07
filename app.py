@@ -1,4 +1,4 @@
-from typing import Annotated, List
+from typing import Annotated, List, Optional
 import typer
 import csv
 import os
@@ -253,14 +253,33 @@ def viewa():
 
 
 @app.command(help='search for notes')
-def sern():
+def sern(class_id: Annotated[Optional[List[str]], typer.Argument(help='id of the class to search')] = None):
+
+    # raises error if the class id is not number
+    if class_id != None:
+        for i in class_id:
+            try:
+                int(i)
+            except:
+                print('Classid parameter can only get; 1, 2, 3')
+                return
+
+    # raise error if the class id is not 1, 2, 3
+    if class_id != None:
+        for i in class_id:
+            if 4 <= int(i) or int(i) <= 0:
+                print('Classid parameter can only get; 1, 2, 3')
+                return
+
 
     print('<====------========={search}=========------====>')
     search_query = input()
-    print('<====------======={class id\'s}=======------====>')
-    search_class = input('1/2/3 : ')
     print('<====------==========================------====>')
 
+
+    # if class_id is empty then it will search for all the classes
+    if class_id == []:
+        class_id = ['1', '2', '3']
 
     # data of the results
     row_data = []
@@ -269,7 +288,7 @@ def sern():
 
     # search for the query
     for id, row in enumerate(all_data):
-        if search_query in row[0] and row[-1] == search_class:
+        if search_query in row[0] and row[-1] in class_id:
             row = [id, row[0], row[1]]
             row_data.append(row)
 
@@ -285,7 +304,7 @@ def sern():
         if len(i[2]) > longest_note:
             longest_note = len(i[2])
 
-    # add spaces to the end of the note to make it evenly spaced
+    # add spaces to the end of the note to make it aligned
     for ind, i in enumerate(pretty_data):
         diffirence = longest_note - len(i[2])
         i[2] = i[2] + ' ' * diffirence
