@@ -1,6 +1,10 @@
+
+<!-- TOC --><a name="notesonly"></a>
 # NotesOnly
 ![noon logo](screenshots/noon-logo.png)
+<!-- TOC --><a name="simple-cli-note-taking-app"></a>
 ### simple CLI note-taking app
+<!-- TOC --><a name="takes-notes-directly-from-your-terminal"></a>
 ### Takes notes directly from your terminal
 
 note-taking = storing plain single-line text
@@ -10,6 +14,28 @@ text for future usage.
 
 This project uses Typer and to store the file a csv file is used (datas.csv)
 
+<!-- TOC start  -->
+
+- [NotesOnly](#notesonly)
+    + [simple CLI note-taking app](#simple-cli-note-taking-app)
+    + [Takes notes directly from your terminal](#takes-notes-directly-from-your-terminal)
+- [Installation](#installation)
+- [how to setup system-wide `noon` command](#how-to-setup-system-wide-noon-command)
+- [Usage](#usage)
+  * [Class-feature](#class-feature)
+  * [Commands](#commands)
+  * [addn](#addn)
+  * [deln](#deln)
+  * [dela](#dela)
+  * [editn](#editn)
+  * [viewn](#viewn)
+  * [viewc](#viewc)
+  * [viewa](#viewa)
+  * [sern](#sern)
+
+<!-- TOC end -->
+
+<!-- TOC --><a name="installation"></a>
 # Installation
 
 1. clone this repository
@@ -18,6 +44,7 @@ git clone https://github.com/ThDag/NotesOnly.git
 ```
 thats it (i think)
 
+<!-- TOC --><a name="how-to-setup-system-wide-noon-command"></a>
 # how to setup system-wide `noon` command
 just run the `setup.py` file 
 ```bash
@@ -29,11 +56,13 @@ running `app.py` with full path from anywhere in computer can be used (very inco
 
 Ex.
 ```bash
-python ~/desktop/programming/NotesOnly/app.py addn "setup noon" 1
+python ~/desktop/programming/NotesOnly/app.py addn 
 ```
 
+<!-- TOC --><a name="usage"></a>
 # Usage
 
+<!-- TOC --><a name="class-feature"></a>
 ## Class-feature
 The class feature is a way to organize your notes. 
 it is a sort of hierarchy you can access/view all
@@ -44,21 +73,16 @@ notes in class it has 3 classes; <br>
 
 Classes are given to notes using there id numbers
 
+<!-- TOC --><a name="commands"></a>
 ## Commands
 
 NotesOnly tool is extremely simple and easy-to-use,
 using simple terminal commands with little parameters.
 
 **containing only 6 functions** <br>
-1. [addn](#addn)
-2. [deln](#deln)
-3. [dela](#dela)
-4. [editn](#editn) 
-5. [viewn](#viewn)
-6. [viewc](#viewc)
-7. [viewa](#viewa)
-8. [sern](#sern)
+addn, deln, dela, editn, viewn, viewc, viewa, sern
 
+<!-- TOC --><a name="addn"></a>
 ## addn
 Add a new note.
 
@@ -77,6 +101,7 @@ this will add a new middle class note
 
 > if class id is not spesified it will present with a interactive class id selection window
 
+<!-- TOC --><a name="deln"></a>
 ## deln
 Delete note
 
@@ -99,6 +124,7 @@ or see what you are deleting with [viewn](#viewn)
 <img src="screenshots/deln.png" alt="Image Description" width="400"/>
 
 
+<!-- TOC --><a name="dela"></a>
 ## dela
 Delete all the notes
 
@@ -112,6 +138,7 @@ then it will proceed to delete all the notes.
 
 <img src="screenshots/dela.png" alt="Image Description" width="400"/>
 
+<!-- TOC --><a name="editn"></a>
 ## editn
 Edit note
 
@@ -128,6 +155,7 @@ todo!!**add here output images for editn**!!
 
 <img src="screenshots/editn.png" alt="Image Description" width="400"/>
 
+<!-- TOC --><a name="viewn"></a>
 ## viewn
 View a specific note
 
@@ -142,6 +170,7 @@ the note id
 
 <img src="screenshots/viewn.png" alt="Image Description" width="400"/>
 
+<!-- TOC --><a name="viewc"></a>
 ## viewc
 View a specific class
 
@@ -158,6 +187,7 @@ there is only 3 class ids: [Class feature](#Class-feature)
 
 <img src="screenshots/viewc.png" alt="Image Description" width="400"/>
 
+<!-- TOC --><a name="viewa"></a>
 ## viewa
 view all the notes
 
@@ -171,6 +201,7 @@ this will print all the notes
 
 <img src="screenshots/viewa.png" alt="Image Description" width="400"/>
 
+<!-- TOC --><a name="sern"></a>
 ## sern
 search for notes
 
@@ -181,3 +212,4 @@ TODO: add image
 
 
 -Taha Dağıstanlı
+
