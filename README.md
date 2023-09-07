@@ -10,17 +10,13 @@ text for future usage.
 
 This project uses Typer and to store the file a csv file is used (datas.csv)
 
+# Installation
 
-## Class-feature
-The class feature is a way to organize your notes. 
-it is a sort of hierarchy you can access/view all
-notes in class it has 3 classes; <br>
-1. upper  id -> 1
-2. middle; id -> 2
-3. lower; id -> 3 <br>
-
-Classes are given to notes using there id numbers
-
+1. clone this repository
+```
+git clone https://github.com/ThDag/NotesOnly.git 
+```
+thats it (i think)
 
 # how to setup system-wide `noon` command
 just run the `setup.py` file 
@@ -38,6 +34,18 @@ python ~/desktop/programming/NotesOnly/app.py addn "setup noon" 1
 
 # Usage
 
+## Class-feature
+The class feature is a way to organize your notes. 
+it is a sort of hierarchy you can access/view all
+notes in class it has 3 classes; <br>
+1. upper  id -> 1
+2. middle; id -> 2
+3. lower; id -> 3 <br>
+
+Classes are given to notes using there id numbers
+
+## Commands
+
 NotesOnly tool is extremely simple and easy-to-use,
 using simple terminal commands with little parameters.
 
@@ -49,6 +57,7 @@ using simple terminal commands with little parameters.
 5. [viewn](#viewn)
 6. [viewc](#viewc)
 7. [viewa](#viewa)
+8. [sern](#sern)
 
 ## addn
 Add a new note.
@@ -162,12 +171,13 @@ this will print all the notes
 
 <img src="screenshots/viewa.png" alt="Image Description" width="400"/>
 
-# Installation
+## sern
+search for notes
 
-1. clone this repository
-```
-git clone https://github.com/ThDag/NotesOnly.git 
-```
-thats it (i think)
+**sern** takes no parameters, In Interactive menu it asks for query to search then class to search then 
+prints the results.
+
+TODO: add image
+
 
 -Taha Dağıstanlı
