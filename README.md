@@ -205,11 +205,16 @@ this will print all the notes
 ## sern
 search for notes
 
-**sern** takes no parameters, In Interactive menu it asks for query to search then class to search then 
-prints the results.
+```bash
+noon sern 1 2
+```
+This will search in the 1 and 2 classes.
 
-TODO: add image
+**sern** takes 1 parameter; class_id is the classes to filter.
+It can be given multiple or none. If given none it will show from all classes.
+In Interactive menu it asks for query to search then  prints the results.
 
+<img src="screenshots/sern.png" alt="Image Description" width="400"/>
 
 -Taha Dağıstanlı
 
