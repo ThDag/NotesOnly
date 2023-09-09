@@ -39,16 +39,7 @@ def get_all_data():
 
 # add note                      
 @app.command(help='add new note')
-def addn(classid: Annotated[int, typer.Argument(help='id of the note\'s class')]=422):
-    # the 422 is used as None with keeping it as int and when its 422 it will ask for input
-    # for the classid its primarily used for the 'noon' command without the addn sub command
-    if classid == 422:
-        print('<====------========{class id}========------====>')
-        try:
-            classid = int(input('1/2/3 : '))
-        except:
-            print('only one of those options excepted.')
-            return
+def addn(note: Annotated[Optional[str], typer.Argument(help='note itself')]=None, classid: Annotated[int, typer.Option(help='id of the note\'s class')]=2):
 
     # check if Class got any invalid values
     if 4 <= classid or classid <= 0:
