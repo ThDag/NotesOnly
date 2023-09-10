@@ -50,22 +50,20 @@ sudo python setup.py
 <!-- TOC --><a name="class-feature"></a>
 ## Class-feature
 The class feature is a way to organize your notes. 
-it is a sort of hierarchy you can access/view all
-notes in class it has 3 classes; <br>
+It is a sort of hierarchy you can access or view all
+notes in class it has 3 classes:
+
 1. upper  id -> 1
 2. middle; id -> 2
-3. lower; id -> 3 <br>
+3. lower; id -> 3
 
 Classes are given to notes using there id numbers
 
 <!-- TOC --><a name="commands"></a>
 ## Commands
 
-NotesOnly tool is extremely simple and easy-to-use,
-using simple terminal commands with little parameters.
-
-**containing only 6 functions** <br>
-addn, deln, dela, editn, viewn, viewc, viewa, sern
+NotesOnly is extremely simple and easy to use.
+It features simple commands with few parameters.
 
 <!-- TOC --><a name="addn"></a>
 ## addn
