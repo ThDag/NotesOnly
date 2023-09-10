@@ -44,15 +44,6 @@ cd NotesOnly
 sudo python setup.py
 ```
 
----
-**Note**: in the examples the command `noon` is used, if this is not setup 
-running `app.py` with full path from anywhere in computer can be used (very inconvenient)
-
-Ex.
-```bash
-python ~/desktop/programming/NotesOnly/app.py addn 
-```
-
 <!-- TOC --><a name="usage"></a>
 # Usage
 
