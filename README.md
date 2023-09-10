@@ -20,7 +20,6 @@ This project uses Typer and to store the file a csv file is used (datas.csv)
     + [simple CLI note-taking app](#simple-cli-note-taking-app)
     + [Takes notes directly from your terminal](#takes-notes-directly-from-your-terminal)
 - [Installation](#installation)
-- [how to setup system-wide `noon` command](#how-to-setup-system-wide-noon-command)
 - [Usage](#usage)
   * [Class-feature](#class-feature)
   * [Commands](#commands)
@@ -38,18 +37,13 @@ This project uses Typer and to store the file a csv file is used (datas.csv)
 <!-- TOC --><a name="installation"></a>
 # Installation
 
-1. clone this repository
+Clone the repository and install:
 ```
-git clone https://github.com/ThDag/NotesOnly.git 
-```
-thats it (i think)
-
-<!-- TOC --><a name="how-to-setup-system-wide-noon-command"></a>
-# how to setup system-wide `noon` command
-just run the `setup.py` file 
-```bash
+git clone https://github.com/ThDag/NotesOnly.git
+cd NotesOnly
 sudo python setup.py
 ```
+
 ---
 **Note**: in the examples the command `noon` is used, if this is not setup 
 running `app.py` with full path from anywhere in computer can be used (very inconvenient)
