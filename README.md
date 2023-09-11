@@ -16,9 +16,6 @@ This project uses Typer and to store the file a csv file is used (datas.csv)
 
 <!-- TOC start  -->
 
-- [NotesOnly](#notesonly)
-    + [simple CLI note-taking app](#simple-cli-note-taking-app)
-    + [Takes notes directly from your terminal](#takes-notes-directly-from-your-terminal)
 - [Installation](#installation)
 - [how to setup system-wide `noon` command](#how-to-setup-system-wide-noon-command)
 - [Usage](#usage)
