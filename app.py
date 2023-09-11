@@ -30,7 +30,7 @@ pwd = os.path.dirname(__file__)
 # gets all the data from the csv file 
 def get_all_data():
     all_data = []
-    with open(f'{pwd}/datas.csv', 'r') as file:
+    with open(f'{pwd}/data.csv', 'r') as file:
         data = csv.reader(file)
         for i in data:
             all_data.append(i)
@@ -57,7 +57,7 @@ def pretty_printing(id_numbers: List[int], heading: str) -> None:
             pretty_data.append(data)
 
         else:
-            print('datas.csv has been touched (in a bad way)')
+            print('data.csv has been touched (in a bad way)')
 
     # aligning the print file
 
@@ -114,7 +114,7 @@ def addn(note: Annotated[Optional[str], typer.Argument(help='note itself')]=None
 
     # append the note
     note_data = [note, classid]
-    with open(f'{pwd}/datas.csv', 'a') as file:
+    with open(f'{pwd}/data.csv', 'a') as file:
         data = csv.writer(file)
         data.writerow(note_data)
 
@@ -124,7 +124,7 @@ def addn(note: Annotated[Optional[str], typer.Argument(help='note itself')]=None
 @app.command(help = 'edit note with note id')
 def editn(id: Annotated[str, typer.Argument(help='id of the note to edit')]):
     
-    # getting all the datas
+    # getting all the data
     all_data = get_all_data()
 
 
@@ -146,7 +146,7 @@ def editn(id: Annotated[str, typer.Argument(help='id of the note to edit')]):
         new_note = input()
         all_data[int_id][0] = new_note
 
-    with open(f'{pwd}/datas.csv', 'w') as file:
+    with open(f'{pwd}/data.csv', 'w') as file:
         data = csv.writer(file)
         data.writerows(all_data)
 
@@ -186,7 +186,7 @@ def deln(id: Annotated[List[str], typer.Argument(help='id of the note to delete'
                 print('Note with this id does not exist.')
                 return
 
-        with open(f'{pwd}/datas.csv', 'w') as file:
+        with open(f'{pwd}/data.csv', 'w') as file:
             data = csv.writer(file)
             data.writerows(all_data)
 
@@ -203,7 +203,7 @@ def dela():
     print('!THIS WILL DELETE ALL THE NOTES!')
     a = input("Please type \'yes\' to comfirm: ")
     if a == 'yes':
-        file = open(f'{pwd}/datas.csv', 'w')
+        file = open(f'{pwd}/data.csv', 'w')
         file.close
         print('All the notes are deleted.')
 
