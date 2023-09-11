@@ -17,7 +17,6 @@ This project uses Typer and to store the file a csv file is used (datas.csv)
 <!-- TOC start  -->
 
 - [Installation](#installation)
-- [how to setup system-wide `noon` command](#how-to-setup-system-wide-noon-command)
 - [Usage](#usage)
   * [Class-feature](#class-feature)
   * [Commands](#commands)
@@ -35,25 +34,11 @@ This project uses Typer and to store the file a csv file is used (datas.csv)
 <!-- TOC --><a name="installation"></a>
 # Installation
 
-1. clone this repository
+Clone the repository and install:
 ```
-git clone https://github.com/ThDag/NotesOnly.git 
-```
-thats it (i think)
-
-<!-- TOC --><a name="how-to-setup-system-wide-noon-command"></a>
-# how to setup system-wide `noon` command
-just run the `setup.py` file 
-```bash
+git clone https://github.com/ThDag/NotesOnly.git
+cd NotesOnly
 sudo python setup.py
-```
----
-**Note**: in the examples the command `noon` is used, if this is not setup 
-running `app.py` with full path from anywhere in computer can be used (very inconvenient)
-
-Ex.
-```bash
-python ~/desktop/programming/NotesOnly/app.py addn 
 ```
 
 <!-- TOC --><a name="usage"></a>
@@ -62,22 +47,20 @@ python ~/desktop/programming/NotesOnly/app.py addn
 <!-- TOC --><a name="class-feature"></a>
 ## Class-feature
 The class feature is a way to organize your notes. 
-it is a sort of hierarchy you can access/view all
-notes in class it has 3 classes; <br>
+It is a sort of hierarchy you can access or view all
+notes in class it has 3 classes:
+
 1. upper  id -> 1
 2. middle; id -> 2
-3. lower; id -> 3 <br>
+3. lower; id -> 3
 
 Classes are given to notes using there id numbers
 
 <!-- TOC --><a name="commands"></a>
 ## Commands
 
-NotesOnly tool is extremely simple and easy-to-use,
-using simple terminal commands with little parameters.
-
-**containing only 6 functions** <br>
-addn, deln, dela, editn, viewn, viewc, viewa, sern
+NotesOnly is extremely simple and easy to use.
+It features simple commands with few parameters.
 
 <!-- TOC --><a name="addn"></a>
 ## addn
