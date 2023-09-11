@@ -37,6 +37,67 @@ def get_all_data():
     return all_data
 
 
+def pretty_printing(id_numbers: List[int], heading: str) -> None:
+
+    all_data = get_all_data()
+
+    
+    # the demanded data is the data demanded by the function caller  
+    # and it's obtained by id numbers given for all_data 
+    demanded_data = []
+    for i in id_numbers:
+        demanded_data.append(all_data[i])
+
+
+    # this just adds pipeline between items in the data given to it.
+    pretty_data = []
+    for ind, row in enumerate(demanded_data):
+        if len(row) >= 2: 
+            data = [str(id_numbers[ind]), '|', row[0], '|', row[1]]
+            pretty_data.append(data)
+
+        else:
+            print('datas.csv has been touched (in a bad way)')
+
+    # aligning the print file
+
+    # get the longest note
+    longest_note = 0
+    for i in pretty_data:
+        if len(i[2]) > longest_note:
+            longest_note = len(i[2])
+
+    # get the longest id (highest digit for alignment)
+    longest_id = str(id_numbers[-1])
+    # length_of_longest_id doesn't start counting from 0 it starts from 1
+    length_of_longest_id = len(longest_id)
+
+
+    # add spaces to the end of the note to make it evenly spaced
+    for ind, i in enumerate(pretty_data):
+        diffirence = longest_note - len(i[2])
+        i[2] = i[2] + ' ' * diffirence
+        pretty_data[ind][2] = i[2]
+
+    # add spaced to the end of id numbers to make it evenly spaced
+    for ind, i in enumerate(pretty_data):
+        diffirence = length_of_longest_id - len(i[0])
+        i[0] = i[0] + ' ' * diffirence
+        pretty_data[ind][0] = i[0]
+        
+
+    print(f'----{heading}----')
+
+    # aligning the id heading with the longest id
+    id_heading_spaces = ' ' * (length_of_longest_id - 1)
+
+    # aligning the note heading with the longest note
+    note_heading_spaces = ' ' * (longest_note - 2)
+    print(f'id{id_heading_spaces}|note{note_heading_spaces}|class')
+
+    for i in pretty_data:
+        print(i[0], i[1], i[2], i[3], i[4])
+
 # add note                      
 @app.command(help='add new note')
 def addn(note: Annotated[Optional[str], typer.Argument(help='note itself')]=None, classid: Annotated[int, typer.Option(help='id of the note\'s class')]=2):
@@ -136,7 +197,7 @@ def deln(id: Annotated[List[str], typer.Argument(help='id of the note to delete'
         print('note(s) deleted:', deleted_notes_str)
 
 
-
+# delete all notes
 @app.command(help='delete all the notes')
 def dela():
     print('!THIS WILL DELETE ALL THE NOTES!')
