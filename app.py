@@ -242,68 +242,46 @@ def viewn(id: Annotated[str, typer.Argument(help='id of the note to view')]):
 
 # view class
 @app.command(help='view notes from class id')
-def viewc(classid: Annotated[int, typer.Argument(help='id of the class to view')]):
+def viewc(classid: Annotated[str, typer.Argument(help='id of the class to view')]):
 
-    row_data =  [] 
+    # raises error if the class id is not number
+    try:
+        int(classid)
+    except:
+        print('Classid parameter can only get; 1, 2, 3')
+        return
+
+    # raise error if the class id is not 1, 2, 3
+    if 4 <= int(classid) or int(classid) <= 0:
+        print('Classid parameter can only get; 1, 2, 3')
+        return
+
+    all_ids = []
 
     all_data = get_all_data()
     # all the items with the class id of Classid from all_data
     for id, row in enumerate(all_data):
         if row[-1] == str(classid):
-            row = [id, row[0]]
-            row_data.append(row)
+            all_ids.append(id)
 
-
-    # make the data pretty
-    pretty_data = []
-    for row in row_data:
-        data = [row[0], '|', row[1]]
-        pretty_data.append(data)
-
-    # print the result
-    print(f'--{classes.get(str(classid))}--')
-    for i in pretty_data:
-        print(i[0], i[1], i[2])
+    pretty_printing(all_ids, f'{classes.get(str(classid))}')
 
 # view all notes
 @app.command(help='view all the notes')
 def viewa():
 
-    # saving all the notes 
-    all_data = get_all_data()   
+    all_data = get_all_data()
 
-    # make the data pretty
-    pretty_data = []
-    for id, row in enumerate(all_data):
-        if len(row) >= 2: 
-            data = [id, '|', row[0], '|', row[1]]
-            pretty_data.append(data)
+    # getting id of all the notes
+    all_ids = []
+    for ind in range(len(all_data)):
+        all_ids.append(ind)
 
-        else:
-            print('keep in mind syntax is wrong')
-
-    # aligning the print file
-
-    # get the longest note
-    longest_note = 0
-    for i in pretty_data:
-        if len(i[2]) > longest_note:
-            longest_note = len(i[2])
-
-    # add spaces to the end of the note to make it evenly spaced
-    for ind, i in enumerate(pretty_data):
-        diffirence = longest_note - len(i[2])
-        i[2] = i[2] + ' ' * diffirence
-        pretty_data[ind][2] = i[2]
-        
+    pretty_printing(all_ids, 'all notes')
 
 
-    print('----all notes----')
-    print('--id|note|class--')
-    for i in pretty_data:
-        print(i[0], i[1], i[2], i[3], i[4])
 
-
+# Search notes
 @app.command(help='search for notes')
 def sern(class_id: Annotated[Optional[List[str]], typer.Argument(help='id of the class to search')] = None):
 
