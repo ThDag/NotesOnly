@@ -7,12 +7,12 @@
 <!-- TOC --><a name="takes-notes-directly-from-your-terminal"></a>
 ### Takes notes directly from your terminal
 
-note-taking = storing plain single-line text
+Introducing our new Python-based CLI note-taking application!
+It's designed to help you organize your notes, with the power of classes.
 
 this app is mainly intended for any OS that doesn't have GUI and solves the struggle of storing
 text for future usage.
 
-This project uses Typer and to store the file a csv file is used (datas.csv)
 
 <!-- TOC start  -->
 
