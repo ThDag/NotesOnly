@@ -163,11 +163,17 @@ def deln(id: Annotated[List[str], typer.Argument(help='id of the note to delete'
     # deleted notes for visual feed back to the user
     deleted_notes = []
 
-    if id == '00':
+    if id == ['00']:
         # the last item in all_data
         deleted_notes.append(all_data[-1][0])
         # delete last item
         all_data.pop()
+
+        with open(f'{pwd}/data.csv', 'w') as file:
+            data = csv.writer(file)
+            data.writerows(all_data)
+
+        print('note(s) deleted:', all_data[-1][0])
 
 
 
