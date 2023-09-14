@@ -173,7 +173,7 @@ def deln(id: Annotated[List[str], typer.Argument(help='id of the note to delete'
             data = csv.writer(file)
             data.writerows(all_data)
 
-        print('note(s) deleted:', all_data[-1][0])
+        print('note(s) deleted:', deleted_notes[0])
 
 
 

@@ -78,7 +78,7 @@ this will add a new middle class note
 **addn** takes 1 argument: classid
 
 
-<img src="screenshots/interactive-addn.png" alt="Image Description" width="900"/>
+<img src="screenshots/addn.gif" alt="Image Description" width="900"/>
 
 > if class id is not spesified it will present with a interactive class id selection window
 
@@ -102,7 +102,7 @@ it will delete all the listed notes.
 to see whats the id of a note [see all notes](#viewa)
 or see what you are deleting with [viewn](#viewn)
 
-<img src="screenshots/deln.png" alt="Image Description" width="400"/>
+<img src="screenshots/deln.gif" alt="Image Description" width="400"/>
 
 
 <!-- TOC --><a name="dela"></a>
@@ -117,7 +117,7 @@ then it will proceed to delete all the notes.
 
 **dela** takes no arguments. But it asks for confirmation before deleting all the notes.
 
-<img src="screenshots/dela.png" alt="Image Description" width="400"/>
+<img src="screenshots/dela.gif" alt="Image Description" width="400"/>
 
 <!-- TOC --><a name="editn"></a>
 ## editn
@@ -132,7 +132,7 @@ this will open interactive window to edit note with the **id number 2**
 **editn** takes 1 parameter: note id, edits the note with
 the note id
 
-<img src="screenshots/editn.png" alt="Image Description" width="400"/>
+<img src="screenshots/editn.gif" alt="Image Description" width="400"/>
 
 <!-- TOC --><a name="viewn"></a>
 ## viewn
@@ -147,7 +147,7 @@ this will print the note with the **id number 2**
 **viewn** takes 1 parameter: note id, prints the note with
 the note id
 
-<img src="screenshots/viewn.png" alt="Image Description" width="400"/>
+<img src="screenshots/viewn.gif" alt="Image Description" width="400"/>
 
 <!-- TOC --><a name="viewc"></a>
 ## viewc
@@ -164,7 +164,7 @@ the class id
 
 there is only 3 class ids: [Class feature](#Class-feature) 
 
-<img src="screenshots/viewc.png" alt="Image Description" width="400"/>
+<img src="screenshots/viewc.gif" alt="Image Description" width="400"/>
 
 <!-- TOC --><a name="viewa"></a>
 ## viewa
@@ -178,7 +178,7 @@ this will print all the notes
 
 **viewa** takes no parameter just prints all the notes
 
-<img src="screenshots/viewa.png" alt="Image Description" width="400"/>
+<img src="screenshots/viewa.gif" alt="Image Description" width="400"/>
 
 <!-- TOC --><a name="sern"></a>
 ## sern
@@ -194,7 +194,7 @@ This will search in the 1 and 2 classes.
 It can be given multiple or none. If given none it will show from all classes.
 In Interactive menu it asks for query to search then  prints the results.
 
-<img src="screenshots/sern.png" alt="Image Description" width="400"/>
+<img src="screenshots/sern.gif" alt="Image Description" width="400"/>
 
 -Taha Dağıstanlı
 
