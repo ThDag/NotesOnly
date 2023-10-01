@@ -16,6 +16,7 @@ text for future usage.
 
 <!-- TOC start  -->
 
+- [Demo](#demo)
 - [Installation](#installation)
 - [Usage](#usage)
   * [Class-feature](#class-feature)
@@ -30,6 +31,15 @@ text for future usage.
   * [sern](#sern)
 
 <!-- TOC end -->
+
+<!-- TOC --><a name="demo"></a>
+# Demo
+Here is Demo of usage.
+
+<video src="screenshots/demo.mp4" controls>
+</video>
+
+
 
 <!-- TOC --><a name="installation"></a>
 # Installation
