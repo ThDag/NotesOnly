@@ -36,10 +36,7 @@ text for future usage.
 # Demo
 Here is Demo of usage.
 
-<video src="screenshots/demo.mp4" controls>
-</video>
-
-
+<img src="screenshots/demo.gif" alt="demo" width="900"/>
 
 <!-- TOC --><a name="installation"></a>
 # Installation
